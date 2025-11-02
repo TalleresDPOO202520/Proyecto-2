@@ -157,7 +157,7 @@ public class Programa4 {
         Localidad general = new Localidad("L-G", "General", 120.0, false, 2);
         evento.agregarLocalidad(general);
 
-        List<Tiquete> disponibles = general.generarTiquetes(evento);e
+        List<Tiquete> disponibles = general.generarTiquetes(evento);
         List<Tiquete> carrito = Arrays.asList(disponibles.get(0));
         Cliente cliente = new Cliente("pepa", "oink");
         cliente.abonar(1000.0);
