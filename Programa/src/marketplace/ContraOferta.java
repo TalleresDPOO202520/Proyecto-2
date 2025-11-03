@@ -41,10 +41,10 @@ public class ContraOferta {
     }
 
     public void marcarAceptada() {
-        // TODO
+        estado = 1;
     }
 
     public void marcarRechazada() {
-        // TODO
+        estado = 2;
     }
 }

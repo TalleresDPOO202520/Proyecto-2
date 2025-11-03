@@ -34,7 +34,7 @@ public class Marketplace {
         System.out.prinln("El admin " + admin + " eliminó la oferta con ID: " + idOferta);
     }
 
-    public void contraofertar(String idOferta, String idContra, Cliente comprador, double precio) {
+    public void contraOfertar(String idOferta, String idContra, Cliente comprador, double precio) {
         ContraOferta co = new ContraOferta(idContra, comprador, precio);
         Oferta o = ofertasActivas.get(idOferta);
         o.getContraOfertas().add(co);
@@ -42,7 +42,11 @@ public class Marketplace {
     }
 
     public void aceptarContraOferta(String idOferta, String idContra, Cliente vendedor) {
-        // TODO
+        Oferta o = ofertasActivas.get(idOferta);
+        ContraOferta co = o.getContraOfertas();
+        co.get(idContra).marcarAceptada();
+        System.out.println("Contra oferta aceptada exitosamente");
+        
     }
 
     public void comprarPrecioFijo(String idOferta, Cliente comprador) {
