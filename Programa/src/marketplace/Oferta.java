@@ -32,9 +32,15 @@ public class Oferta{
         this.vendedor = vendedor;
         this.tiquetes = new ArrayList<Tiquete>(tiquetes);
         this.precio = precio;
-        this.estado = 1;
+        this.estado = 0;
         this.fechaCreacion = LocalDateTime.now();
         this.contraOfertas = new ArrayList<ContraOferta>();
+    }
+    
+    
+    public vender(Cliente comprador){
+    	this.estado = 1
+    	
     }
 		
 }
