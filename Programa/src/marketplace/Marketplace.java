@@ -50,11 +50,11 @@ public class Marketplace {
     }
 
     public void comprarPrecioFijo(String idOferta, Cliente comprador) {
-        // TODO
+        ofertasActivas.get(idOferta).marcarVendida();
+        
     }
 
     public Oferta getOferta(String idOferta) {
-        // TODO
-        return null;
+    	ofertasActivas.get(idOferta);
     }
 }

@@ -40,6 +40,10 @@ public class Oferta{
     public HashMap<String, ContraOferta> getContraOferta(){
     	return contraOfertas;
     }
+    
+    public void marcarVendida() {
+    	estado = 1;
+    }
 
 		
 }
