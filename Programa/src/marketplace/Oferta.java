@@ -37,10 +37,9 @@ public class Oferta{
         this.contraOfertas = new HashMap<>();
     }
     
-    
-    public vender(Cliente comprador){
-    	this.estado = 1
-    	
+    public HashMap<String, ContraOferta> getContraOferta(){
+    	return contraOfertas;
     }
+
 		
 }

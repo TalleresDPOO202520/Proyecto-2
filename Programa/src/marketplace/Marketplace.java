@@ -37,7 +37,8 @@ public class Marketplace {
     public void contraofertar(String idOferta, String idContra, Cliente comprador, double precio) {
         ContraOferta co = new ContraOferta(idContra, comprador, precio);
         Oferta o = ofertasActivas.get(idOferta);
-        
+        o.getContraOfertas().add(co);
+        System.out.println("Contra oferta publicada exitosamente");
     }
 
     public void aceptarContraOferta(String idOferta, String idContra, Cliente vendedor) {
