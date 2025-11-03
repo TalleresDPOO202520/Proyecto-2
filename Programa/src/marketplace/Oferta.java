@@ -1,8 +1,7 @@
 package marketplace;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 import usuarios.Cliente;
 import tiquetes.Tiquete;
@@ -15,7 +14,7 @@ public class Oferta{
 	public double precio;
 	public int estado; //0: publicado, 1: vendido, 2: eliminado
 	public HashMap<String, ContraOferta> contraOfertas;
-	public Date fechaCreacion;
+	public LocalDateTime fechaCreacion;
 	
 	
     public Oferta(String idOferta, Cliente vendedor, ArrayList<Tiquete> tiquetes, double precio) {
@@ -49,7 +48,7 @@ public class Oferta{
     	return precio;
     }
     
-    public HashMap<String, ContraOferta> getContraOferta(){
+    public HashMap<String, ContraOferta> getContraOfertas(){
     	return contraOfertas;
     }
     

@@ -26,25 +26,25 @@ public class Marketplace {
     public void eliminarPorVendedor(String idOferta, Cliente vendedor) {
     	ofertasActivas.get(idOferta).marcarEliminada();
         ofertasActivas.remove(idOferta);
-        System.out.prinln("El vendedor " + vendedor + " eliminó su oferta con ID: " + idOferta);
+        System.out.println("El vendedor " + vendedor + " eliminó su oferta con ID: " + idOferta);
     }
 
     public void eliminarPorAdmin(String idOferta, Administrador admin) {
     	ofertasActivas.get(idOferta).marcarEliminada();
     	ofertasActivas.remove(idOferta);
-        System.out.prinln("El admin " + admin + " eliminó la oferta con ID: " + idOferta);
+        System.out.println("El admin " + admin + " eliminó la oferta con ID: " + idOferta);
     }
 
     public void contraOfertar(String idOferta, String idContra, Cliente comprador, double precio) {
         ContraOferta co = new ContraOferta(idContra, comprador, precio);
         Oferta o = ofertasActivas.get(idOferta);
-        o.getContraOfertas().add(co);
+        o.getContraOfertas().put(idContra, co);
         System.out.println("Contra oferta publicada exitosamente");
     }
 
     public void aceptarContraOferta(String idOferta, String idContra, Cliente vendedor) {
         Oferta o = ofertasActivas.get(idOferta);
-        ContraOferta co = o.getContraOfertas();
+        HashMap<String, ContraOferta> co = o.getContraOfertas();
         co.get(idContra).marcarAceptada();
         System.out.println("Contra oferta aceptada exitosamente");
         
@@ -57,6 +57,6 @@ public class Marketplace {
     }
 
     public Oferta getOferta(String idOferta) {
-    	ofertasActivas.get(idOferta);
+    	return ofertasActivas.get(idOferta);
     }
 }

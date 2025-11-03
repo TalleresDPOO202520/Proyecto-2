@@ -1,4 +1,4 @@
-package marketpalce;
+package marketplace;
 
 import java.time.LocalDateTime;
 import usuarios.Cliente;
