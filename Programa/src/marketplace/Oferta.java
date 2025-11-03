@@ -12,7 +12,7 @@ public class Oferta{
 	private String idOferta;
 	public Cliente vendedor;
 	public ArrayList<Tiquete> tiquetes;
-	public Double precio;
+	public double precio;
 	public int estado; //0: publicado, 1: vendido, 2: eliminado
 	public HashMap<String, ContraOferta> contraOfertas;
 	public Date fechaCreacion;
@@ -37,12 +37,28 @@ public class Oferta{
         this.contraOfertas = new HashMap<>();
     }
     
+    public Cliente getVendedor() {
+    	return vendedor;
+    }
+    
+    public ArrayList<Tiquete> getTiquetes(){
+    	return tiquetes;
+    }
+    
+    public double getPrecio() {
+    	return precio;
+    }
+    
     public HashMap<String, ContraOferta> getContraOferta(){
     	return contraOfertas;
     }
     
     public void marcarVendida() {
     	estado = 1;
+    }
+    
+    public void marcarEliminada() {
+    	estado = 2;
     }
 
 		

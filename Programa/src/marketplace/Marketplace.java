@@ -1,7 +1,6 @@
 package marketplace;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 import usuarios.Cliente;
 import usuarios.Administrador;
 import tiquetes.Tiquete;
@@ -25,11 +24,13 @@ public class Marketplace {
     }
 
     public void eliminarPorVendedor(String idOferta, Cliente vendedor) {
+    	ofertasActivas.get(idOferta).marcarEliminada();
         ofertasActivas.remove(idOferta);
         System.out.prinln("El vendedor " + vendedor + " eliminó su oferta con ID: " + idOferta);
     }
 
     public void eliminarPorAdmin(String idOferta, Administrador admin) {
+    	ofertasActivas.get(idOferta).marcarEliminada();
     	ofertasActivas.remove(idOferta);
         System.out.prinln("El admin " + admin + " eliminó la oferta con ID: " + idOferta);
     }
@@ -51,6 +52,7 @@ public class Marketplace {
 
     public void comprarPrecioFijo(String idOferta, Cliente comprador) {
         ofertasActivas.get(idOferta).marcarVendida();
+        ofertasActivas.remove(idOferta);
         
     }
 
