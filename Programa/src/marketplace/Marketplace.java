@@ -8,33 +8,36 @@ import tiquetes.Tiquete;
 
 public class Marketplace {
 
-    public ArrayList<Oferta> ofertasActivas;
+    public HashMap<String, Oferta> ofertasActivas;
 
     public Marketplace() {
-        this.ofertasActivas = new ArrayList<>();
+        this.ofertasActivas = new HashMap<>();
     }
 
-    public Oferta publicarOferta(String idOferta, Cliente vendedor, ArrayList<Tiquete> tiquetes, double precio) {
-        // TODO
-        return null;
+    public void publicarOferta(String idOferta, Cliente vendedor, ArrayList<Tiquete> tiquetes, double precio) {
+    	Oferta o = new Oferta(idOferta, vendedor, tiquetes, precio);
+    	ofertasActivas.put(idOferta, o);
+        System.out.println("Ofertas activas:" + ofertasActivas);
     }
 
-    public List<Oferta> ofertasPublicadas() {
-        // TODO
-        return null;
+    public HashMap<String, Oferta> getOfertasActivas() {
+        return ofertasActivas;
     }
 
     public void eliminarPorVendedor(String idOferta, Cliente vendedor) {
-        // TODO
+        ofertasActivas.remove(idOferta);
+        System.out.prinln("El vendedor " + vendedor + " eliminó su oferta con ID: " + idOferta);
     }
 
     public void eliminarPorAdmin(String idOferta, Administrador admin) {
-        // TODO
+    	ofertasActivas.remove(idOferta);
+        System.out.prinln("El admin " + admin + " eliminó la oferta con ID: " + idOferta);
     }
 
-    public ContraOferta contraofertar(String idOferta, String idContra, Cliente comprador, double precio) {
-        // TODO
-        return null;
+    public void contraofertar(String idOferta, String idContra, Cliente comprador, double precio) {
+        ContraOferta co = new ContraOferta(idContra, comprador, precio);
+        Oferta o = ofertasActivas.get(idOferta);
+        
     }
 
     public void aceptarContraOferta(String idOferta, String idContra, Cliente vendedor) {

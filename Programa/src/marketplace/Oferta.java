@@ -14,7 +14,7 @@ public class Oferta{
 	public ArrayList<Tiquete> tiquetes;
 	public Double precio;
 	public int estado; //0: publicado, 1: vendido, 2: eliminado
-	public ArrayList<ContraOferta> contraOfertas;
+	public HashMap<String, ContraOferta> contraOfertas;
 	public Date fechaCreacion;
 	
 	
@@ -34,7 +34,7 @@ public class Oferta{
         this.precio = precio;
         this.estado = 0;
         this.fechaCreacion = LocalDateTime.now();
-        this.contraOfertas = new ArrayList<ContraOferta>();
+        this.contraOfertas = new HashMap<>();
     }
     
     
