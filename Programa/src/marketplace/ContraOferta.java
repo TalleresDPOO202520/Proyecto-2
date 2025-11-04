@@ -11,40 +11,53 @@ public class ContraOferta {
     public int estado;              // 0=pendiente, 1=aceptada, 2=rechazada
     public LocalDateTime fecha;
 
+
     public ContraOferta(String idContra, Cliente comprador, Double precioPropuesto) {
-        // TODO: inicializar atributos
+        if (idContra == null || idContra.isEmpty())
+            throw new IllegalArgumentException("El ID de la contraoferta no puede ser nulo o vacío.");
+        if (comprador == null)
+            throw new IllegalArgumentException("El comprador no puede ser nulo.");
+        if (precioPropuesto == null || precioPropuesto <= 0)
+            throw new IllegalArgumentException("El precio propuesto debe ser mayor a 0.");
+
+        this.idContra = idContra;
+        this.comprador = comprador;
+        this.precioPropuesto = precioPropuesto;
+        this.estado = 0; // pendiente por defecto
+        this.fecha = LocalDateTime.now();
     }
 
     public String getIdContra() {
-        // TODO
-        return null;
+        return idContra;
     }
 
     public Cliente getComprador() {
-        // TODO
-        return null;
+        return comprador;
     }
 
     public Double getPrecioPropuesto() {
-        // TODO
-        return null;
+        return precioPropuesto;
     }
 
     public int getEstado() {
-        // TODO
-        return 0;
+        return estado;
     }
 
     public LocalDateTime getFecha() {
-        // TODO
-        return null;
+        return fecha;
     }
 
     public void marcarAceptada() {
-        estado = 1;
+        this.estado = 1;
+        System.out.println("Contraoferta " + idContra + " aceptada para comprador: " + comprador.getLogin());
     }
 
     public void marcarRechazada() {
-        estado = 2;
+        this.estado = 2;
+        System.out.println("Contraoferta " + idContra + " rechazada para comprador: " + comprador.getLogin());      
     }
 }
+
+
+
+
