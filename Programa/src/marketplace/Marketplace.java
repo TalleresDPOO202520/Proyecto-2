@@ -59,4 +59,6 @@ public class Marketplace {
     public Oferta getOferta(String idOferta) {
     	return ofertasActivas.get(idOferta);
     }
+    
 }
+

@@ -59,6 +59,15 @@ public class Oferta{
     public void marcarEliminada() {
     	estado = 2;
     }
+    
+    public String getIdOferta() {
+        return idOferta;
+    }
+
+    public int getEstado() {
+        return estado;
+    }
+
 
 		
 }

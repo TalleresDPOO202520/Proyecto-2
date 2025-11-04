@@ -1,16 +1,13 @@
 package consola;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 import marketplace.Marketplace;
-import marketplace.Oferta;
 import persistencia.Persistencia;
 import usuarios.Administrador;
 import usuarios.Cliente;
-import tiquetes.Tiquete;
 
-public class Consolar {
+public class Clienteapp {
 
     private Marketplace mp;
     private String rolActual;
@@ -19,18 +16,30 @@ public class Consolar {
     private Cliente clienteActivo;
     private Administrador adminActivo;
 
-    public Consolar(Marketplace mp) {
+    public Clienteapp(Marketplace mp) {
         this.mp = mp;
         this.rolActual = null;
         this.ejecutando = true;
         this.scanner = new Scanner(System.in);
     }
 
+
+    public void setCliente(Cliente c) {
+        this.clienteActivo = c;
+        this.rolActual = "cliente";
+    }
+    public void setAdmin(Administrador a) {
+        this.adminActivo = a;
+        this.rolActual = "admin";
+    }
+
     public void inicio() {
         System.out.println("=== Bienvenido al Marketplace de Boletamaster ===");
         cargarDatos();
 
-        autenticarUsuario();
+        if (rolActual == null) { 
+            autenticarUsuario();
+        }
 
         while (ejecutando) {
             mostrarMenu();
@@ -167,7 +176,7 @@ public class Consolar {
     public void contraofertar(String idOferta, String idContra, double precio) {
         try {
             mp.contraOfertar(idOferta, idContra, clienteActivo, precio);
-            System.out.println( "Contraoferta enviada exitosamente.");
+            System.out.println("Contraoferta enviada exitosamente.");
         } catch (Exception e) {
             System.err.println(" Error al realizar la contraoferta: " + e.getMessage());
         }
